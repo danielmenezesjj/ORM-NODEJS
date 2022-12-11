@@ -89,7 +89,7 @@ module.exports = {
 
   const database = require('../models')
 
-
+{
 class PessoaController{
    static async listaTodasAsPessoas(req, res){
     try{
@@ -101,6 +101,8 @@ class PessoaController{
     }
 
     }
+}
+
 }
 
 module.exports = PessoaController;
