@@ -4,7 +4,8 @@
     "password": "123456",
     "database": "Escola-Ingles",
     "host": "127.0.0.1",
-    "dialect": "mssql"
+    "dialect": "mssql",
+    "encrypt": "false"
   },
   "test": {
     "username": "root",

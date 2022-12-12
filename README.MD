@@ -131,5 +131,41 @@ module.exports = app =>{
     app.use(bodyParser.json())
     app.use(pessoas)
 }
+```
+
+* Depois disso podemos apagar algumas coisas do index.js da pasta src e vamos deixar da seguinte forma
 
 ```
+const express = require('express')
+const routes = require('./routes')
+
+
+const app = express();
+
+routes(app);
+
+const port = 3001
+
+
+app.listen(port, () => console.log(`A api está rodando na porta ${port}`))
+
+module.exports = app;
+
+```
+
+# Funções CRUD
+
+* No controller vamos criar a função de listar por id 
+```
+    static async pegaUmaPessoa(req, res){
+        const {id} = req.params
+        try {
+            const umaPessoa = await database.Pessoas.findOne( {where: {id: Number(id)}} )
+            return res.status(200).json(umaPessoa)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+```
+
